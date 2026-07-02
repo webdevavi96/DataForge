@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthButton, ScrollButton } from "../components/shared/export.js";
+import { AuthButton, ScrollButton, Card } from "../components/shared/export.js";
 
 function LandingPage() {
     return (
@@ -25,7 +25,7 @@ function LandingPage() {
                         <AuthButton
                             btnText="Get Started"
                             type="primary"
-                            to="/dashboard"
+                            to="/upload"
                         />
 
                         <ScrollButton
@@ -46,16 +46,16 @@ function LandingPage() {
                 </h2>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                    <Card>
                         <h3 className="text-xl font-semibold mb-3">
                             File Integration
                         </h3>
                         <p className="text-gray-400">
                             Securely upload PDF, CSV, and TXT files up to 5 MB.
                         </p>
-                    </div>
+                    </Card>
 
-                    <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                    <Card>
                         <h3 className="text-xl font-semibold mb-3">
                             AI Structuring
                         </h3>
@@ -63,18 +63,18 @@ function LandingPage() {
                             Automatically clean and standardize unstructured data
                             using LLMs.
                         </p>
-                    </div>
+                    </Card>
 
-                    <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                    <Card>
                         <h3 className="text-xl font-semibold mb-3">
                             Dynamic Dashboard
                         </h3>
                         <p className="text-gray-400">
                             Smart chart detection with interactive visualizations.
                         </p>
-                    </div>
+                    </Card>
 
-                    <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                    <Card>
                         <h3 className="text-xl font-semibold mb-3">
                             CSV Export
                         </h3>
@@ -82,9 +82,10 @@ function LandingPage() {
                             Download cleaned datasets and use them in Excel or Google
                             Sheets.
                         </p>
-                    </div>
+                    </Card>
                 </div>
             </section>
+
 
             <section className="container mx-auto px-6 py-20">
                 <h2 className="text-4xl font-bold text-center mb-14">
@@ -92,60 +93,57 @@ function LandingPage() {
                 </h2>
 
                 <div className="grid md:grid-cols-4 gap-8 text-center">
-                    <div>
+                    <Card>
                         <div className="text-5xl mb-4">📂</div>
                         <h3 className="font-semibold mb-2">Upload File</h3>
                         <p className="text-gray-400">
                             Upload TXT, PDF, or CSV files.
                         </p>
-                    </div>
+                    </Card>
 
-                    <div>
+                    <Card>
                         <div className="text-5xl mb-4">⚙️</div>
                         <h3 className="font-semibold mb-2">Backend Processing</h3>
                         <p className="text-gray-400">
                             Files are parsed and standardized.
                         </p>
-                    </div>
+                    </Card>
 
-                    <div>
+                    <Card>
                         <div className="text-5xl mb-4">🤖</div>
                         <h3 className="font-semibold mb-2">AI Analysis</h3>
                         <p className="text-gray-400">
                             AI identifies fields, types, and chart suggestions.
                         </p>
-                    </div>
+                    </Card>
 
-                    <div>
+                    <Card>
                         <div className="text-5xl mb-4">📊</div>
                         <h3 className="font-semibold mb-2">Visualize</h3>
                         <p className="text-gray-400">
                             Explore interactive dashboards instantly.
                         </p>
-                    </div>
+                    </Card>
                 </div>
             </section>
 
+            <Card className="bg-indigo-600 rounded-3xl p-12 text-center">
+                <h2 className="text-4xl font-bold mb-4">
+                    Ready to Forge Your Data?
+                </h2>
 
-            <section className="container mx-auto px-6 py-20">
-                <div className="bg-indigo-600 rounded-3xl p-12 text-center">
-                    <h2 className="text-4xl font-bold mb-4">
-                        Ready to Forge Your Data?
-                    </h2>
+                <p className="text-lg mb-8 text-indigo-100">
+                    Turn raw documents into meaningful insights in seconds.
+                </p>
 
-                    <p className="text-lg mb-8 text-indigo-100">
-                        Turn raw documents into meaningful insights in seconds.
-                    </p>
-
-                    <div className="flex justify-center">
-                        <AuthButton
-                            btnText="Start Now"
-                            type="secondary"
-                            to="/home"
-                        />
-                    </div>
+                <div className="flex justify-center">
+                    <AuthButton
+                        btnText="Join Us"
+                        type="secondary"
+                        to="/signin"
+                    />
                 </div>
-            </section>
+            </Card>
         </div>
     );
 }

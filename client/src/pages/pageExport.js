@@ -1,8 +1,19 @@
-import LandingPage from "./LandingPage";
-import DashBoard from "./DashBoard";
-import AboutPage from "./AboutPage";
-import HomePage from "./HomePage";
-import SignUpPage from "./SignUpPage";
-import SignInPage from "./SignInPage";
+import React, { lazy } from "react";
 
-export { LandingPage, DashBoard, AboutPage, HomePage, SignInPage, SignUpPage };
+const LandingPage = lazy(() => import("./LandingPage"));
+const DashBoard = lazy(() => import("./DashBoard"));
+const AboutPage = lazy(() => import("./AboutPage"));
+const HomePage = lazy(() => import("./HomePage"));
+const SignUpPage = lazy(() => import("./SignUpPage"));
+const SignInPage = lazy(() => import("./SignInPage"));
+const UploadPage = lazy(() => import("./UploadPage"));
+
+export {
+  LandingPage,
+  DashBoard,
+  AboutPage,
+  HomePage,
+  SignInPage,
+  SignUpPage,
+  UploadPage,
+};

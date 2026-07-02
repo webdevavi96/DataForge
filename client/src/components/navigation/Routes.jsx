@@ -7,12 +7,15 @@ import {
     HomePage,
     SignInPage,
     SignUpPage,
+    UploadPage,
 } from "../../pages/pageExport.js";
+
+import Layout from "../layout/Layout.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-     
+        Component: Layout,
         children: [
             {
                 index: true,
@@ -37,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path: "signup",
                 Component: SignUpPage,
+            },
+            {
+                path: "upload",
+                Component: UploadPage,
             },
         ],
     },
