@@ -1,5 +1,3 @@
-// components/shared/Button.jsx
-
 import React from "react";
 
 const variants = {
