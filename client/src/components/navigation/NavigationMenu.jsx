@@ -4,9 +4,14 @@ import { IoPerson } from "react-icons/io5";
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+
+import { AuthContext } from "../../contexts/exportContext.js";
 
 function NavigationMenu() {
+
+    const { user } = useContext(AuthContext)
+
     const [isDesktop, setIsDesktop] = useState(
         window.innerWidth >= 768
     );
@@ -50,6 +55,11 @@ function NavigationMenu() {
             to: "/dashboard",
             icon: <MdSpaceDashboard size={22} />,
             label: "Dashboard",
+        },
+        {
+            to: "/profile",
+            icon: <MdSpaceDashboard size={22} />,
+            label: "Profile",
         },
     ];
 

@@ -2,7 +2,8 @@ import React from "react";
 import { FaCloudUploadAlt, FaFileCsv, FaFilePdf } from "react-icons/fa";
 import { BsFiletypeTxt } from "react-icons/bs";
 import { MdOutlineAnalytics } from "react-icons/md";
-import { Button, Card, AuthButton } from "../components/shared/export";
+
+import { Button, Card, AuthButton } from "../components/export.js";
 
 function HomePage() {
   return (

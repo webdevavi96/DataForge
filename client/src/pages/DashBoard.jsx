@@ -9,27 +9,45 @@ import {
 } from "react-icons/fa";
 import { BsFiletypePdf, BsFiletypeTxt } from "react-icons/bs";
 import { MdAutoGraph } from "react-icons/md";
-import { Card, AuthButton, Button } from "../components/shared/export";
+
+import { AuthContext } from "../contexts/exportContext.js"
+import { Card, AuthButton, Button, ProfileCard } from "../components/export.js";
+
 
 function DashBoard() {
+
+  const { user } = React.useContext(AuthContext)
+
+
   return (
     <div className="min-h-screen bg-slate-950 text-white px-4 sm:px-6 py-10">
       <div className="max-w-7xl mx-auto">
 
         <section className="mb-12">
-          <span className="inline-block px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-sm mb-5">
-            Smart Data Visualization Workspace
-          </span>
+          <div className="flex flex-col lg:flex-row gap-6 justify-between">
 
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            DataForger
-            <span className="text-indigo-400"> Dashboard</span>
-          </h1>
+            <div className="flex-1">
+              <span className="inline-block px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-sm mb-5">
+                Smart Data Visualization Workspace
+              </span>
 
-          <p className="text-slate-400 text-lg max-w-3xl">
-            Upload unstructured files and let AI clean, structure,
-            analyze, and visualize your data automatically.
-          </p>
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                DataForger
+                <span className="text-indigo-400"> Dashboard</span>
+              </h1>
+
+              <p className="text-slate-400 text-lg max-w-2xl">
+                Upload unstructured files and let AI clean,
+                structure, analyze, and visualize your data
+                automatically.
+              </p>
+            </div>
+
+            <div className="w-full lg:w-80 xl:w-96 flex-shrink-0">
+              <ProfileCard user={user} />
+            </div>
+
+          </div>
         </section>
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">

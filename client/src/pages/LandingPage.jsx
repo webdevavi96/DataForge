@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthButton, ScrollButton, Card } from "../components/shared/export.js";
+import { AuthButton, ScrollButton, Card } from "../components/export.js";
 
 function LandingPage() {
     return (

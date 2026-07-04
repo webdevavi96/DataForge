@@ -1,8 +1,12 @@
-import React, { useState } from "react";
-import { Button, Card } from "../components/shared/export";
+import React, { useState, useContext } from "react";
+
+import { Button, Card } from "../components/export.js";
+import {AuthContext} from "../contexts/exportContext.js"
 
 function UploadPage() {
     const [file, setFile] = useState(null);
+    const { user } = useContext(AuthContext);
+
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -29,9 +33,9 @@ function UploadPage() {
                 <div className="text-center mb-12">
 
                     <div className="flex flex-col items-center gap-3 mb-5">
-                        <span className="w-full max-w-2xl text-center px-4 py-2 rounded-full bg-amber-500/20 text-amber-300 text-sm">
+                        {!user?.isVerified && (<span className="w-full max-w-2xl text-center px-4 py-2 rounded-full bg-amber-500/20 text-amber-300 text-sm">
                             You have limited uploads. Login to save your data for future.
-                        </span>
+                        </span>)}
 
                         <span className="px-4 py-2 rounded-full bg-indigo-500/20 text-indigo-300 text-sm">
                             File Integration Engine

@@ -7,7 +7,9 @@ import {
   FaServer,
   FaDatabase
 } from "react-icons/fa";
-import { Card } from "../components/shared/export";
+
+
+import { Card } from "../components/export.js";
 
 function AboutPage() {
   return (

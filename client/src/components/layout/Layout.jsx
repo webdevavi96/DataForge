@@ -1,7 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../navigation/NavigationMenu'
-import { Footer } from "../shared/export.js"
+
+import { Footer } from '../export.js'
 
 
 function Layout() {

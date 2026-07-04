@@ -7,6 +7,7 @@ const HomePage = lazy(() => import("./HomePage"));
 const SignUpPage = lazy(() => import("./SignUpPage"));
 const SignInPage = lazy(() => import("./SignInPage"));
 const UploadPage = lazy(() => import("./UploadPage"));
+const ProfilePage = lazy(() => import("./ProfilePage"));
 
 export {
   LandingPage,
@@ -16,4 +17,5 @@ export {
   SignInPage,
   SignUpPage,
   UploadPage,
+  ProfilePage,
 };

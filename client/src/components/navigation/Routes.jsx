@@ -1,5 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import Layout from "../layout/Layout"
+
+import { ProtectedRoutes } from "../export.js";
 import {
     LandingPage,
     DashBoard,
@@ -8,9 +11,9 @@ import {
     SignInPage,
     SignUpPage,
     UploadPage,
+    ProfilePage,
 } from "../../pages/pageExport.js";
 
-import Layout from "../layout/Layout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +48,14 @@ const router = createBrowserRouter([
                 path: "upload",
                 Component: UploadPage,
             },
+            {
+                path: "profile",
+                element: (
+                    <ProtectedRoutes>
+                        <ProfilePage />
+                    </ProtectedRoutes>
+                ),
+            }
         ],
     },
 ]);
