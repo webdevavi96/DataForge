@@ -1,30 +1,13 @@
 import React, { useState, useContext } from "react";
 
 import { Button, Card } from "../components/export.js";
-import {AuthContext} from "../contexts/exportContext.js"
+import { useAuth, useUpload } from "../hooks/hookExport.js";
 
 function UploadPage() {
-    const [file, setFile] = useState(null);
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
 
+    const { file, handleFileChange, previewFile, clearFile } = useUpload();
 
-    const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-
-        if (selectedFile) {
-            setFile(selectedFile);
-        }
-    };
-
-    const fileTypes = ["application/pdf", "text/plain", "text/csv"]
-    const previewFile = () => {
-        if (!file) return;
-
-        const fileUrl = URL.createObjectURL(file);
-
-        if (fileTypes.includes(file.type)) window.open(fileUrl, "_blank")
-        else alert("This file type is not supported.")
-    };
 
     return (
         <div className="min-h-screen bg-slate-950 text-white px-4 sm:px-6 py-10">

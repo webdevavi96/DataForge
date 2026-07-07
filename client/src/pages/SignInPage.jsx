@@ -1,8 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { Button, Card } from "../components/export.js";
+import { useAuth } from "../hooks/hookExport.js";
 
 function SignInPage() {
+
+  const { login } =useAuth();
+  const [formData, setFormData] = React.useState({
+    email: "",
+    password: ""
+  });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = await login(formData);
+
+    if (!user) return
+
+    if (user.isVerified) navigate("/dashboard", { replace: true })
+
+  }
+
+
+
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center px-6 py-12">
 
@@ -30,7 +56,7 @@ function SignInPage() {
           </p>
         </div>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
 
           <div>
             <label className="block text-sm font-medium text-slate-300 mb-2">
@@ -40,6 +66,8 @@ function SignInPage() {
             <input
               type="email"
               placeholder="john@example.com"
+              name="email"
+              onChange={handleChange}
               className="
                                 w-full
                                 px-4 py-3
@@ -72,6 +100,8 @@ function SignInPage() {
             <input
               type="password"
               placeholder="••••••••"
+              name="password"
+              onChange={handleChange}
               className="
                                 w-full
                                 px-4 py-3
@@ -88,6 +118,7 @@ function SignInPage() {
           </div>
 
           <Button
+            type="submit"
             variant="primary"
             className="w-full"
           >

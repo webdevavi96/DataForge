@@ -1,9 +1,23 @@
 import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+
 import userRouter from "./user/route.js";
 import fileRouter from "./services/core/service.js";
 
+dotenv.config()
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+
+
+
+app.use(cors({
+  origin: process.env.ORIGIN_URL,
+  credentials: true
+}));
+
+app.use(express.json());
 
 app.use((err, req, res, next) => {
   if (err.code === "LIMIT_FILE_SIZE") {
@@ -19,8 +33,9 @@ app.use((err, req, res, next) => {
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-app.get("/api/users", userRouter);
-app.get("/api/files", fileRouter);
+app.use("/api/users", userRouter);
+app.use("/api/files", fileRouter);
+
 
 app.listen(port, () => {
   console.log(`listening on port: ${port}`);

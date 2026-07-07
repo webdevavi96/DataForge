@@ -10,13 +10,13 @@ import {
 import { BsFiletypePdf, BsFiletypeTxt } from "react-icons/bs";
 import { MdAutoGraph } from "react-icons/md";
 
-import { AuthContext } from "../contexts/exportContext.js"
 import { Card, AuthButton, Button, ProfileCard } from "../components/export.js";
+import {useAuth} from "../hooks/hookExport.js";
 
 
 function DashBoard() {
 
-  const { user } = React.useContext(AuthContext)
+  const { user } = useAuth()
 
 
   return (

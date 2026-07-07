@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { Navigate } from "react-router-dom";
+
+import fetchApi from "../services/api.js";
 import { AuthButton, ScrollButton, Card } from "../components/export.js";
+import { useAuth } from "../hooks/hookExport.js";
 
 function LandingPage() {
-    return (
+
+    const { user } = useAuth();
+
+    if (user?.isVerified) return (<Navigate to={"/home"} />)
+
+    else return (
         <div className="min-h-screen bg-slate-950 text-white">
 
             <section className="container mx-auto px-6 py-20">

@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { MdVerified, MdOutlineVerified } from "react-icons/md";
 import { FaEnvelope, FaUser } from "react-icons/fa";
 
-import { AuthContext } from "../contexts/exportContext.js";
+import { useAuth } from "../hooks/hookExport.js";
 import { Card, Button } from "../components/export.js";
 import AuthButtons from "../components/shared/buttons/AuthButtons.jsx";
 
 function ProfilePage() {
-    const { user, logout } = useContext(AuthContext);
+    const { user, logout } = useAuth();
 
     const getInitials = () => {
         if (!user?.fullName) return "GU";

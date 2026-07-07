@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { upload } from "./multer";
-import { processMidleware, readFile, downloadFile } from "./processMidleware";
+import { upload } from "./multer.js";
+import { processMidleware, readFile, downloadFile } from "./processMidleware.js";
 
 const router = Router();
 
@@ -11,7 +11,7 @@ router.post("/upload", upload.single("file"), (req, res) => {
   });
 });
 
-router.get("/process/:fileId", fileHandler);
+router.get("/process/:fileId", processMidleware);
 router.get("/file/:filepath", readFile);
 router.get("/download/:filepath", downloadFile);
 

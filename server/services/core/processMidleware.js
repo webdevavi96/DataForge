@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs/promises";
 
-import { processFn } from "./process";
+import { processFn } from "./process.js";
 
 function helperFn(filePath) {
   const allowedExt = [".txt", ".pdf", ".csv"];

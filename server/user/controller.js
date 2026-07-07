@@ -1,4 +1,4 @@
-import { User } from "./model";
+import { User } from "./model.js";
 import mongoose from "mongoose";
 
 export const register = async (req, res) => {

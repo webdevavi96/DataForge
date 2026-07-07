@@ -1,10 +1,10 @@
 import fs from "fs/promises";
-import { visualizer } from "../LLM/visualize";
+import { visualizer } from "../LLM/visualize.js";
 
-export const processFn = async function (filePath) {
-  if (!filePath) return;
+export const processFn = async function (path) {
+  if (!path) return;
 
-  const filePath = filePath;
+  const filePath = path;
 
   try {
     const rawData = await fs.readFile(filePath, "utf8");

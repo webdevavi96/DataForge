@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { Button, Card } from "../components/export.js";
+import { useAuth } from "../hooks/hookExport.js";
+
+
 
 function SignUpPage() {
+
+  const { } = useAuth();
+
   return (
     <div className="min-h-screen bg-slate-950 flex items-center justify-center px-6 py-12">
 
